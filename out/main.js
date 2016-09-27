@@ -1,23 +1,14 @@
-var Greeter = (function () {
-    function Greeter(element) {
-        this.element = element;
-        this.element.innerHTML += "The time is: ";
-        this.span = document.createElement('span');
-        this.element.appendChild(this.span);
-        this.span.innerText = new Date().toUTCString();
+function Draw(n) { n = 5;
+    for (var i = 0; i < n; i++) {
+        var str = "";
+        for (var k = 0; k < i; k++) {
+            str += "**";
+        }
+        str = str.substring(0, str.length - 1);
+        console.log(str);
     }
-    Greeter.prototype.start = function () {
-        var _this = this;
-        this.timerToken = setInterval(function () { return _this.span.innerHTML = new Date().toUTCString(); }, 500);
-    };
-    Greeter.prototype.stop = function () {
-        clearTimeout(this.timerToken);
-    };
-    return Greeter;
-}());
+}
 window.onload = function () {
-    var el = document.getElementById('content');
-    var greeter = new Greeter(el);
-    greeter.start();
+    Draw(8);
 };
 //# sourceMappingURL=main.js.map
